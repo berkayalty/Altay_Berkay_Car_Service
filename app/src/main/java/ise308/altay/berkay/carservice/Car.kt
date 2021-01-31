@@ -35,9 +35,9 @@ class Car{
         //convert date format into timestamp.
         val lastServiceTimestamp = this.lastServiceDate!!.time
         //if the cars current km more than 20.000 from last service km OR
-        //if there is 2 years between current service date and last service date then car needs to goto service.
+        //if there is 2 years(730 days) between current service date and last service date then car needs to goto service.
         //otherwise isNeedService assigned false and item background setted red.
-        this.isNeedService = (((currentDateTimeStamp - lastServiceTimestamp)/ (1000 * 60 * 60 * 24 * 365) >= 2) || (currentKM!! - lastServiceKM!! >= 20000))
+        this.isNeedService = (((currentDateTimeStamp - lastServiceTimestamp)/ (24 * 60 * 60 * 1000) >= 730) || (currentKM!! - lastServiceKM!! >= 20000))
     }
 
     //program use this constructor when new car service record created and saved to database
